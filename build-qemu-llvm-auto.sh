@@ -56,7 +56,6 @@ cd build
   --disable-docs \
   --disable-werror \
   --disable-gtk \
-  --disable-sdl \
   --disable-vnc \
   --disable-spice \
   --disable-plugins
