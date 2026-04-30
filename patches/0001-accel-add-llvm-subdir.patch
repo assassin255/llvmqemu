@@ -1,0 +1,30 @@
+From: LLVM Accel <stilla@stilla.ai>
+Date: Wed, 30 Apr 2025 00:00:00 +0000
+Subject: [PATCH] accel: add llvm subdir to meson build
+
+Register the new accel/llvm/ directory in accel/meson.build so that
+the LLVM accelerator (accel/llvm/llvm-accel.c) is compiled into the
+system emulation build.
+
+Apply this patch to the QEMU 11.0.0 source tree:
+
+  cd qemu-src
+  patch -p1 < ../patches/0001-accel-add-llvm-subdir.patch
+
+Then copy accel/llvm/ from this repository into qemu-src/accel/.
+---
+ accel/meson.build | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/accel/meson.build b/accel/meson.build
+index XXXXXXX..YYYYYYY 100644
+--- a/accel/meson.build
++++ b/accel/meson.build
+@@ -8,6 +8,7 @@ subdir('tcg')
+ if have_system
+   subdir('hvf')
+   subdir('whpx')
++  subdir('llvm')
+   subdir('qtest')
+   subdir('kvm')
+   subdir('xen')
